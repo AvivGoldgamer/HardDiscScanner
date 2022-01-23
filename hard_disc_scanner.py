@@ -7,6 +7,7 @@ import concurrent.futures as cf
 
 ################################# Logger Method ##############################
 
+# Create Collection For Logs
 def initialize_loger_collection():
 
     try:
@@ -20,6 +21,7 @@ def initialize_loger_collection():
         # In Case Collection Already Exists 
         pass
 
+# Insert Log Into The DB
 def create_log(desc):
     
     # Insert Log To DB
@@ -101,7 +103,7 @@ def extract_file_properties(file_path, dir, file_data):
     except (TypeError, FileNotFoundError, OSError):
 
         # Ignore Above Exceptions
-        print("asdasd")
+        pass
 
 # Check If File Extension Is Same As Config File Extension
 def extension_check(file_name):
@@ -170,8 +172,6 @@ def result_writer():
 
     # Running Over The Data Recieved From The DB
     for value in data:
-
-        print(value)
         
         # Getting The File Name And Extension Seperated
         file_name_splited = value[0].rsplit(".", 1)
@@ -242,3 +242,4 @@ def scan_hard_disc():
 ################################# Main Function Call ################################
 
 scan_hard_disc()
+
